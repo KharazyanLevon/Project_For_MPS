@@ -21,7 +21,7 @@
    ```
 3. Запустите FastAPI:
    ```bash
-   cd /Users/businessbook/Desktop/Project_For_MPS
+   cd text_processor
    uvicorn main:app --host 0.0.0.0 --port 8001
    ```
 4. Запустите Django-сервер:
