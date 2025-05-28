@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text Formatter - {% block title %}{% endblock %}</title>
+    {% load static %}
+    <script src="{% static 'tinymce/tinymce.min.js' %}" referrerpolicy="origin"></script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Text Formatter</h1>
+        <nav>
+            <a href="{% url 'index' %}">Home</a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'create_text' %}">Create Text</a>
+                <a href="{% url 'logout' %}">Logout</a>
+            {% else %}
+                <a href="{% url 'login' %}">Login</a>
+                <a href="{% url 'register' %}">Register</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>

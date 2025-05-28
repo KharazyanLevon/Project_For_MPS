@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+    <h1>Log In</h1>
+    <p>You need to be logged in to create a text. Please log in or register for an account.</p>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Log In</button>
+    </form>
+    <p>Don't have an account? <a href="{% url 'register' %}">Register here</a>.</p>
+    {% if next %}
+        <input type="hidden" name="next" value="{{ next }}">
+    {% endif %}
+{% endblock %}

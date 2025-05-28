@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <h1>My Texts</h1>
+    <ul>
+    {% for text in texts %}
+        <li>
+            {{ text.title }} (Words: {{ text.word_count|default:"Processing..." }})
+            <a href="{% url 'edit_text' text.id %}">Edit</a>
+            <a href="{% url 'delete_text' text.id %}">Delete</a>
+        </li>
+    {% endfor %}
+    </ul>
+    <a href="{% url 'create_text' %}">Create New Text</a>
+{% endblock %}
