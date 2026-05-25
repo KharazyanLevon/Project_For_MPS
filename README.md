@@ -6,25 +6,33 @@
 ## Технологии
 - **Django**: Основной фреймворк для веб-приложения с SQLite3 как базой данных.
 - **FastAPI**: Используется для подсчёта слов через локальный API.
-- **Python**: Версия 3.12.
+- **Python**: Версия 3.12 или выше (проверено на 3.13).
 
 ## Установка
-1. Установите зависимости:
+
+1. Создайте и активируйте виртуальное окружение:
+
    ```bash
-   pip3 install -r requirements.txt
+   python3 -m venv venv
+   source venv/bin/activate  # macOS/Linux
+   venv\Scripts\activate     # Windows
    ```
-2. Выполните миграции для создания базы данных:
+2. Установите зависимости:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Выполните миграции для создания базы данных:
    ```bash
    cd main_service
    python3 manage.py makemigrations
    python3 manage.py migrate
    ```
-3. Запустите FastAPI:
+4. Запустите FastAPI:
    ```bash
    cd text_processor
    uvicorn main:app --host 0.0.0.0 --port 8001
    ```
-4. Запустите Django-сервер:
+5. Запустите Django-сервер:
    ```bash
    cd main_service
    python3 manage.py runserver
@@ -51,25 +59,39 @@ This is a tutorial project for the MShP course, built using Django and FastAPI. 
 ## Technologies
 - **Django**: The main framework for the web application, using SQLite3 as the database.
 - **FastAPI**: Used for word counting via a local API.
-- **Python**: Version 3.12.
+- **Python**: Version 3.12 or higher (tested on 3.13).
 
 ## Installation
-1. Install dependencies:
+
+1. Create and activate a virtual environment:
+
    ```bash
-   pip3 install -r requirements.txt
+   python3 -m venv venv
+   source venv/bin/activate  # macOS/Linux
+   venv\Scripts\activate     # Windows
    ```
-2. Run migrations to create the database:
+
+2. Install dependencies:
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. Run migrations to create the database:
    ```bash
    cd main_service
    python3 manage.py makemigrations
    python3 manage.py migrate
    ```
-3. Start FastAPI:
+4. Start FastAPI:
+
    ```bash
    cd text_processor
    uvicorn main:app --host 0.0.0.0 --port 8001
    ```
-4. Start the Django server:
+
+5. Start the Django server:
+
    ```bash
    cd main_service
    python3 manage.py runserver
